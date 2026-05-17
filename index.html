@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Porta Angusta — The Narrow Gate · KJV Bible</title>
+  <meta name="description"
+    content="A King James Bible reader, indexed and illuminated. Search statistics, journaling, and named-entity tracing. Fully offline, open source." />
+  <style>
+    :root {
+      --bg: #0F172A;
+      --bg-2: #1E1B4B;
+      --bg-3: #312E81;
+      --gold: #FCD34D;
+      --gold-dim: #B45309;
+      --text: #E8EDF7;
+      --text-mute: #94A3B8;
+      --accent: #8B5CF6;
+      --accent-light: #A78BFA;
+      --blue: #60A5FA;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    body {
+      background: linear-gradient(180deg, #0F172A 0%, #1E1B4B 30%, #312E81 100%) fixed;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .cross {
+      display: inline-block;
+      font-size: 72px;
+      color: #fff;
+      text-shadow:
+        0 0 20px rgba(96, 165, 250, 0.6),
+        0 0 40px rgba(255, 60, 200, 0.5);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      margin: 0 0 8px;
+      color: var(--gold);
+      text-shadow: 0 2px 16px rgba(252, 211, 77, 0.25);
+    }
+    .tagline {
+      font-size: 1.05rem;
+      color: var(--text-mute);
+      font-style: italic;
+      margin: 0;
+    }
+    .pull-quote {
+      margin: 48px auto;
+      padding: 18px 22px;
+      background: rgba(15, 23, 42, 0.5);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      font-size: 0.98rem;
+      font-style: italic;
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .pull-quote-ref {
+      display: block;
+      margin-top: 8px;
+      color: var(--gold-dim);
+      font-style: normal;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+    h2 {
+      font-size: 1.45rem;
+      color: var(--gold);
+      margin: 48px 0 16px;
+      letter-spacing: 0.01em;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin: 0 0 24px;
+    }
+    .feature {
+      background: linear-gradient(180deg, rgba(51, 47, 110, 0.45) 0%, rgba(30, 27, 75, 0.8) 100%);
+      border: 1px solid rgba(167, 139, 250, 0.25);
+      border-radius: 12px;
+      padding: 14px 18px;
+    }
+    .feature-title {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .feature-body {
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+    .support {
+      margin-top: 48px;
+      padding: 20px 22px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(252, 211, 77, 0.18);
+      border-radius: 12px;
+    }
+    .support h2 { margin-top: 0; }
+    a {
+      color: var(--accent-light);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(167, 139, 250, 0.3);
+    }
+    a:hover { color: var(--gold); border-color: var(--gold); }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      background: rgba(252, 211, 77, 0.12);
+      border: 1px solid rgba(252, 211, 77, 0.4);
+      border-radius: 10px;
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .btn:hover {
+      background: rgba(252, 211, 77, 0.22);
+      color: #fff;
+      border-color: var(--gold);
+    }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+      color: var(--text-mute);
+      font-size: 0.82rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div class="cross">✚</div>
+      <h1>Porta Angusta</h1>
+      <p class="tagline">The Narrow Gate · King James Version</p>
+    </header>
+
+    <blockquote class="pull-quote">
+      "Enter ye in at the strait gate… because strait is the gate, and narrow
+      is the way, which leadeth unto life, and few there be that find it."
+      <span class="pull-quote-ref">— Matthew 7:13–14</span>
+    </blockquote>
+
+    <p>
+      Porta Angusta is a King James Bible reader for people who want to read
+      the Word carefully — and want their tools to keep up. The whole
+      Authorized Version, 31,102 verses, every word, lives inside the app.
+      No login, no network, no tracking.
+    </p>
+
+    <h2>What's inside</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-title">Read</div>
+        <div class="feature-body">
+          Book and chapter navigation, adjustable text size, dark theme. Tap
+          to highlight, double-tap to hear aloud. Read a whole chapter or
+          just the verses you've selected.
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-title">Search</div>
+        <div class="feature-body">
+          Type any word or reference. A live statistics panel breaks every
+          search into Old Testament vs New Testament, then drills into
+          per-book and per-chapter counts. Tap any of them to filter. Pin
+          searches you return to often.
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-title">People &amp; Places</div>
+        <div class="feature-body">
+          Hundreds of named persons and places, automatically discovered
+          from the KJV text. Each one has a summary card showing total
+          mentions, distinct books, first and last reference, and the peak
+          book — plus an arc diagram tracing the canonical journey. A study
+          starting point, not a curated reference.
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-title">Journal</div>
+        <div class="feature-body">
+          Voice or type your reflections. Attach one verse or many. Tap
+          Reflect on any verse anywhere in the app to start or append a note.
+          Search and re-read your own marginalia. Share entries to Messages,
+          Mail, or anywhere the iOS share sheet reaches.
+        </div>
+      </div>
+    </div>
+
+    <h2>Privacy</h2>
+    <p>
+      There is no account. There is no telemetry. Your journal, bookmarks,
+      and pinned searches live in this app only, on this device only.
+      <a href="privacy.html">Read the full privacy policy →</a>
+    </p>
+
+    <h2>Open source</h2>
+    <p>
+      Porta Angusta is released under the MIT licence. The KJV text is in
+      the public domain in the United States.
+    </p>
+
+    <div class="support">
+      <h2>Support</h2>
+      <p>
+        Found a bug, have a question, or want to suggest a feature?
+        Send an email to
+        <a href="mailto:onetracksystem@outlook.com">onetracksystem@outlook.com</a>
+        and you'll hear back.
+      </p>
+      <div class="links">
+        <a class="btn" href="privacy.html">Privacy Policy</a>
+        <a class="btn" href="mailto:onetracksystem@outlook.com">Email Support</a>
+      </div>
+    </div>
+
+    <footer>
+      Thy word is a lamp unto my feet, and a light unto my path. — Psalm 119:105<br>
+      © 2026 Nicholas Tominello
+    </footer>
+  </main>
+</body>
+</html>
