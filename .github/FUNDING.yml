@@ -1,0 +1,11 @@
+# Porta Angusta is a free, MIT-licensed Bible reader.
+# If you ever want a "Sponsor" button on the repo, uncomment one or more
+# of the lines below and fill in the appropriate handle.
+#
+# Documentation:
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository
+
+# github: [ArcSelf]              # GitHub Sponsors (requires account)
+# ko_fi: your-handle             # Ko-fi
+# buy_me_a_coffee: your-handle   # Buy Me a Coffee
+# custom: ["https://your-site/donate"]
