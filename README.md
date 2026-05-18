@@ -161,11 +161,14 @@ Full policy: https://arcself.github.io/porta-angusta/privacy.html
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+Porta Angusta's source code is released under the **MIT License** — see
+[LICENSE](LICENSE) for the full text.
 
-The KJV text is in the public domain in the United States. In the United
-Kingdom it remains under perpetual Crown copyright administered by Cambridge
-University Press; non-commercial personal use is generally permitted.
+The bundled King James Version text has its own status — see
+[NOTICE](NOTICE) for the jurisdiction-by-jurisdiction summary. In short:
+public domain in the United States, perpetual Crown copyright in the
+United Kingdom (non-commercial personal use generally permitted), and
+public domain in most other jurisdictions with a finite copyright term.
 
 ---
 

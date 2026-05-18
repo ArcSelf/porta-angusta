@@ -1,0 +1,39 @@
+Porta Angusta — The Narrow Gate
+Copyright (c) 2026 Nicholas F. Tominello
+
+This product is licensed under the MIT License (see LICENSE).
+
+────────────────────────────────────────────────────────────────────
+Bundled third-party content
+────────────────────────────────────────────────────────────────────
+
+King James Version (Authorized Version) of the Bible
+
+  The complete text of the KJV ships inside this product as a CSV
+  file at:
+
+      web/public/data/kjv_bible.csv
+      ios/KJVBible/WebApp/data/kjv_bible.csv  (build output of the above)
+
+  Status by jurisdiction:
+
+  • United States — Public Domain.
+    The KJV (originally published in 1611) entered the U.S. public
+    domain centuries ago. No copyright restrictions apply to its
+    inclusion, reproduction, distribution, or modification in the
+    United States.
+
+  • United Kingdom — Perpetual Crown copyright administered by
+    Cambridge University Press under letters patent. Non-commercial
+    personal and devotional use is generally permitted; commercial
+    publication of the KJV in the UK requires permission from
+    Cambridge University Press. Porta Angusta's inclusion of the KJV
+    in a free, non-commercial application falls under generally
+    permitted use.
+
+  • Most other jurisdictions — Public Domain (the KJV's age places
+    it outside the copyright term in essentially every legal system
+    that recognizes a finite copyright term).
+
+  This NOTICE is informational only and does not modify the MIT
+  License under which Porta Angusta's source code is distributed.
