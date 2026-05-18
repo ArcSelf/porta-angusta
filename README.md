@@ -1,14 +1,34 @@
-# Porta Angusta — The Narrow Gate
+<p align="center">
+  <img src="docs/icon.png" width="140" alt="Porta Angusta icon" />
+</p>
 
-A King James Bible reader for iOS. Fully offline. No accounts, no telemetry,
-no network calls of any kind.
+<h1 align="center">Porta Angusta — The Narrow Gate</h1>
+
+<p align="center"><em>A King James Bible reader for iOS. Fully offline.</em></p>
+
+<p align="center">
+  <a href="https://apps.apple.com/app/id6770117302"><img alt="App Store" src="https://img.shields.io/badge/App_Store-Porta_Angusta-0A84FF?logo=apple&logoColor=white" /></a>
+  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/github/license/ArcSelf/porta-angusta?color=FCD34D" /></a>
+  <a href="https://github.com/ArcSelf/porta-angusta/actions/workflows/web-ci.yml"><img alt="Web CI" src="https://github.com/ArcSelf/porta-angusta/actions/workflows/web-ci.yml/badge.svg" /></a>
+  <a href="https://github.com/ArcSelf/porta-angusta/commits/main"><img alt="Last commit" src="https://img.shields.io/github/last-commit/ArcSelf/porta-angusta?color=8B5CF6" /></a>
+  <a href="https://github.com/ArcSelf/porta-angusta/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ArcSelf/porta-angusta?style=social" /></a>
+</p>
+
+<p align="center">
+  <a href="https://apps.apple.com/app/id6770117302">App Store</a>
+  &nbsp;·&nbsp;
+  <a href="https://arcself.github.io/porta-angusta/">Site</a>
+  &nbsp;·&nbsp;
+  <a href="https://arcself.github.io/porta-angusta/privacy.html">Privacy</a>
+</p>
 
 > "Enter ye in at the strait gate… because strait is the gate, and narrow is
 > the way, which leadeth unto life, and few there be that find it."
 > — Matthew 7:13–14
 
-**App Store:** https://apps.apple.com/app/id6770117302
-**Site:** https://arcself.github.io/porta-angusta/
+A King James Bible reader for people who want to read the Word carefully —
+and want their tools to keep up. No accounts, no telemetry, no network
+calls of any kind.
 
 ---
 

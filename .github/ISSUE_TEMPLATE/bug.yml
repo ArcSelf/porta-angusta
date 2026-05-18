@@ -1,0 +1,55 @@
+name: Bug report
+description: Something is broken or misleading in the app.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug. The more specific you can
+        be, the faster it gets fixed.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what actually happened?
+      placeholder: |
+        Steps:
+        1. Open the app
+        2. Tap Search, type "love"
+        3. Tap "Old Testament 334" filter chip
+
+        Expected: results filter to OT only.
+        Actual: app freezes for ~5 seconds, then stats panel shows the wrong split.
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Device & iOS version
+      placeholder: "iPhone 15 Pro, iOS 18.4"
+    validations:
+      required: true
+
+  - type: input
+    id: app-version
+    attributes:
+      label: Porta Angusta version
+      description: Settings → General → About → Porta Angusta on your device, or check the App Store listing.
+      placeholder: "1.0 (build 1)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot or screen recording
+      description: Optional but extremely helpful. Drag and drop the file directly into this text box.
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: Other context — does it happen every time, only sometimes, after a particular action?

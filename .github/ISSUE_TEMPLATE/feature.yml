@@ -1,0 +1,46 @@
+name: Feature request
+description: A new feature or improvement.
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Porta Angusta is intentionally small and offline. Features that
+        preserve those properties have the best chance of landing.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Describe the scripture-reading or study problem you're trying to solve. (Not "the app should do X" — "I want to do Y, and the app makes it hard.")
+      placeholder: |
+        When I'm in a Bible study and want to jump between cross-references,
+        I have to type each reference back into Search by hand…
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like to see?
+      description: How would the feature look or work? UI sketch, comparison to another app, anything.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: privacy-check
+    attributes:
+      label: Privacy posture
+      description: Porta Angusta ships with "No Data Collected" privacy labels. Confirm this feature is compatible.
+      options:
+        - label: This feature does not require network access, analytics, or any third-party SDK.
+          required: false
+        - label: This feature would require network access — and I understand it may not land for that reason.
+          required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Workarounds you've tried
+      description: How are you handling this today?
