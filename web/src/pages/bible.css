@@ -1,0 +1,2660 @@
+/* Church Page Styles - Sacred Design System */
+
+:root {
+  --church-bg: linear-gradient(180deg, #0F172A 0%, #1E1B4B 30%, #312E81 100%);
+  --church-card-bg: rgba(30, 27, 75, 0.85);
+  --church-card-border: rgba(139, 92, 246, 0.2);
+  --church-gold: #FCD34D;
+  --church-gold-dim: #B45309;
+  --church-text: #E2E8F0;
+  --church-text-muted: #94A3B8;
+  --church-accent: #8B5CF6;
+  --church-accent-light: #A78BFA;
+  --church-red: #EF4444;
+  --church-blue: #3B82F6;
+  --church-green: #10B981;
+  --church-radius: 16px;
+  --church-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ═══════════════════════════════════════════
+   PAGE LAYOUT
+   ═══════════════════════════════════════════ */
+
+.church-page {
+  min-height: 100vh;
+  background: var(--church-bg);
+  padding: 20px;
+  padding-bottom: 40px;
+  position: relative;
+  overflow-x: hidden;
+  color: var(--church-text);
+}
+
+/* Ambient light particles */
+.church-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(251, 191, 36, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 50%, rgba(139, 92, 246, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(59, 130, 246, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.church-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ═══════════════════════════════════════════
+   HEADER
+   ═══════════════════════════════════════════ */
+
+.church-header {
+  text-align: center;
+  margin-bottom: 8px;
+  padding: 8px 0;
+}
+
+.church-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--church-gold);
+  margin: 0;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 12px rgba(251, 191, 36, 0.3);
+}
+
+.church-subtitle {
+  font-size: 0.85rem;
+  color: var(--church-text-muted);
+  margin: 4px 0 0;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════
+   DAILY VERSE BANNER
+   ═══════════════════════════════════════════ */
+
+.daily-verse-banner {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  border-radius: var(--church-radius);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.daily-verse-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--church-gold);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.daily-verse-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--church-text);
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.daily-verse-ref {
+  font-size: 0.8rem;
+  color: var(--church-gold-dim);
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   MAIN LAYOUT (Window + Panel)
+   ═══════════════════════════════════════════ */
+
+.church-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .church-main {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .church-window-section {
+    flex: 0 0 320px;
+    position: sticky;
+    top: 20px;
+  }
+
+  .church-panel-section {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   ACTIVE PANEL AREA
+   ═══════════════════════════════════════════ */
+
+.church-panel {
+  background: var(--church-card-bg);
+  border: 1px solid var(--church-card-border);
+  border-radius: var(--church-radius);
+  padding: 20px;
+  box-shadow: var(--church-shadow);
+  backdrop-filter: blur(8px);
+  animation: panel-enter 0.3s ease;
+}
+
+@keyframes panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+.panel-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.panel-icon--search { background: rgba(251, 191, 36, 0.2); }
+.panel-icon--read { background: rgba(59, 130, 246, 0.2); }
+.panel-icon--listen { background: rgba(139, 92, 246, 0.2); }
+.panel-icon--topics { background: rgba(16, 185, 129, 0.2); }
+.panel-icon--entities { background: rgba(6, 182, 212, 0.2); }
+.panel-icon--bookmarks { background: rgba(239, 68, 68, 0.2); }
+
+.panel-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--church-text);
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════
+   SEARCH PANEL
+   ═══════════════════════════════════════════ */
+
+.search-input-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 16px 12px 40px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 12px;
+  color: var(--church-text);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  border-color: var(--church-gold);
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1);
+}
+
+.search-input::placeholder {
+  color: var(--church-text-muted);
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--church-text-muted);
+  font-size: 0.9rem;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-results::-webkit-scrollbar {
+  width: 4px;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+  background: var(--church-accent);
+  border-radius: 2px;
+}
+
+.search-result-count {
+  font-size: 0.8rem;
+  color: var(--church-text-muted);
+  margin-bottom: 8px;
+}
+
+/* ═══════════════════════════════════════════
+   VERSE CARD (shared across panels)
+   ═══════════════════════════════════════════ */
+
+.verse-card {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  border-radius: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.verse-card:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  background: rgba(15, 23, 42, 0.7);
+  transform: translateY(-1px);
+}
+
+.verse-card--active {
+  border-color: var(--church-gold);
+  background: rgba(251, 191, 36, 0.08);
+}
+
+.verse-ref {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--church-gold);
+  margin-bottom: 6px;
+  letter-spacing: 0.03em;
+}
+
+.verse-text {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--church-text);
+}
+
+.verse-text mark {
+  background: rgba(251, 191, 36, 0.25);
+  color: var(--church-gold);
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* ═══════════════════════════════════════════
+   READ PANEL
+   ═══════════════════════════════════════════ */
+
+.read-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.read-select {
+  flex: 1;
+  min-width: 100px;
+  padding: 10px 12px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 10px;
+  color: var(--church-text);
+  font-size: 0.85rem;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' stroke='%2394A3B8' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 30px;
+}
+
+.read-select:focus {
+  border-color: var(--church-blue);
+}
+
+.read-select option {
+  background: #1E1B4B;
+  color: var(--church-text);
+}
+
+.read-chapter-verses {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 450px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.read-chapter-verses::-webkit-scrollbar {
+  width: 4px;
+}
+
+.read-chapter-verses::-webkit-scrollbar-thumb {
+  background: var(--church-blue);
+  border-radius: 2px;
+}
+
+.read-verse-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.06);
+}
+
+.read-verse-num {
+  flex: 0 0 28px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--church-blue);
+  text-align: right;
+  padding-top: 3px;
+  user-select: none;
+}
+
+.read-verse-text {
+  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--church-text);
+}
+
+.read-verse-text--highlight {
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin: -4px -8px;
+}
+
+/* ═══════════════════════════════════════════
+   LISTEN PANEL
+   ═══════════════════════════════════════════ */
+
+.listen-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.listen-verse-display {
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.listen-verse-ref {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--church-accent-light);
+  margin-bottom: 10px;
+}
+
+.listen-verse-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--church-text);
+}
+
+.listen-verse-text .word {
+  display: inline;
+  transition: color 0.15s ease;
+}
+
+.listen-verse-text .word--speaking {
+  color: var(--church-gold);
+  font-weight: 600;
+}
+
+.listen-btn-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.listen-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.listen-btn:hover {
+  transform: scale(1.03);
+}
+
+.listen-btn:active {
+  transform: scale(0.97);
+}
+
+.listen-btn--play {
+  background: var(--church-accent);
+  color: white;
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.35);
+}
+
+.listen-btn--play.playing {
+  background: var(--church-gold);
+  color: #1F2937;
+  box-shadow: 0 4px 16px rgba(251, 191, 36, 0.35);
+}
+
+.listen-btn--stop {
+  background: rgba(239, 68, 68, 0.2);
+  color: var(--church-red);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.listen-btn--mic {
+  background: var(--church-green);
+  color: white;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+}
+
+.listen-btn--mic.listening {
+  background: var(--church-red);
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3);
+  animation: mic-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes mic-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
+}
+
+.listen-btn--next {
+  background: rgba(59, 130, 246, 0.2);
+  color: var(--church-blue);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.listen-speed {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: var(--church-text-muted);
+}
+
+.listen-speed input[type="range"] {
+  width: 100px;
+  accent-color: var(--church-accent);
+}
+
+/* Voice feedback */
+.voice-feedback {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 10px;
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--church-green);
+  font-style: italic;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ═══════════════════════════════════════════
+   TOPICS PANEL
+   ═══════════════════════════════════════════ */
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.topic-chip {
+  padding: 10px 12px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 10px;
+  color: var(--church-green);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: capitalize;
+}
+
+.topic-chip:hover {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.topic-chip--active {
+  background: var(--church-green);
+  color: white;
+  border-color: var(--church-green);
+}
+
+.topic-verses {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.topic-verses::-webkit-scrollbar {
+  width: 4px;
+}
+
+.topic-verses::-webkit-scrollbar-thumb {
+  background: var(--church-green);
+  border-radius: 2px;
+}
+
+/* ═══════════════════════════════════════════
+   BOOKMARKS / SAVED PANEL
+   ═══════════════════════════════════════════ */
+
+.bookmarks-empty {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--church-text-muted);
+}
+
+.bookmarks-empty-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.bookmarks-empty-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.bookmark-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.bookmark-btn {
+  padding: 6px 12px;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 8px;
+  color: var(--church-red);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bookmark-btn:hover {
+  background: rgba(239, 68, 68, 0.25);
+}
+
+.bookmark-btn--remove {
+  background: rgba(100, 100, 100, 0.15);
+  border-color: rgba(100, 100, 100, 0.25);
+  color: var(--church-text-muted);
+}
+
+/* ═══════════════════════════════════════════
+   VERSE ACTION BAR
+   ═══════════════════════════════════════════ */
+
+.verse-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.verse-action-btn {
+  padding: 4px 10px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 6px;
+  color: var(--church-accent-light);
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.verse-action-btn:hover {
+  background: rgba(139, 92, 246, 0.2);
+}
+
+/* ═══════════════════════════════════════════
+   EMPTY STATE (no pane selected)
+   ═══════════════════════════════════════════ */
+
+.church-welcome {
+  text-align: center;
+  padding: 20px 16px;
+  color: var(--church-text-muted);
+}
+
+.church-welcome-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+
+@media (max-width: 640px) {
+  .church-page {
+    padding: 12px;
+  }
+
+  .church-title {
+    font-size: 1.25rem;
+  }
+
+  .church-panel {
+    padding: 16px;
+  }
+
+  .read-nav {
+    flex-direction: column;
+  }
+
+  .listen-btn-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .listen-btn {
+    justify-content: center;
+  }
+
+  .topics-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   LOADING STATE
+   ═══════════════════════════════════════════ */
+
+.church-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 16px;
+}
+
+.church-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(251, 191, 36, 0.2);
+  border-top-color: var(--church-gold);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.church-loading-text {
+  color: var(--church-text-muted);
+  font-size: 0.9rem;
+}
+
+/* ═══════════════════════════════════════════
+   ENTITIES PANEL - Persons & Places
+   ═══════════════════════════════════════════ */
+
+.entity-explorer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Visualization Section ── */
+
+.entity-viz-section {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(6, 182, 212, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.entity-viz-tabs {
+  display: flex;
+  border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+}
+
+.entity-viz-tab {
+  flex: 1;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  color: var(--church-text-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.entity-viz-tab:hover {
+  color: var(--church-text);
+  background: rgba(6, 182, 212, 0.05);
+}
+
+.entity-viz-tab--active {
+  color: #06B6D4;
+  background: rgba(6, 182, 212, 0.1);
+  border-bottom: 2px solid #06B6D4;
+}
+
+/* ── Arc Diagram ── */
+
+.entity-arc-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 8px 0;
+}
+
+.entity-arc-svg {
+  width: 100%;
+  min-width: 400px;
+  height: auto;
+}
+
+/* ── Heat Map ── */
+
+.entity-heatmap {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 320px;
+  padding: 8px;
+}
+
+.heatmap-grid {
+  display: grid;
+  gap: 1px;
+  min-width: 600px;
+}
+
+.heatmap-corner {
+  background: transparent;
+}
+
+.heatmap-book-label {
+  font-size: 6px;
+  color: #64748B;
+  text-align: center;
+  padding: 2px 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  height: 32px;
+  overflow: hidden;
+}
+
+.heatmap-entity-label {
+  font-size: 0.7rem;
+  color: var(--church-text-muted);
+  padding: 2px 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s ease;
+}
+
+.heatmap-entity-label:hover {
+  color: var(--church-text);
+}
+
+.heatmap-entity-label--active {
+  font-weight: 600;
+}
+
+.heatmap-type-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.heatmap-type-dot--person { background: #FCD34D; }
+.heatmap-type-dot--place { background: #06B6D4; }
+
+.heatmap-cell {
+  min-width: 4px;
+  min-height: 14px;
+  border-radius: 1px;
+  background: rgba(51, 65, 85, 0.3);
+  transition: opacity 0.15s ease;
+}
+
+/* ── Book Breakdown ── */
+
+.entity-book-breakdown {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(6, 182, 212, 0.1);
+  border-radius: 10px;
+  padding: 12px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.entity-book-breakdown::-webkit-scrollbar {
+  width: 3px;
+}
+
+.entity-book-breakdown::-webkit-scrollbar-thumb {
+  background: #06B6D4;
+  border-radius: 2px;
+}
+
+.breakdown-title {
+  font-size: 0.78rem;
+  color: var(--church-text-muted);
+  margin-bottom: 10px;
+}
+
+.breakdown-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.breakdown-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breakdown-book {
+  flex: 0 0 36px;
+  font-size: 0.68rem;
+  color: var(--church-text-muted);
+  text-align: right;
+  font-weight: 600;
+}
+
+.breakdown-bar-track {
+  flex: 1;
+  height: 8px;
+  background: rgba(51, 65, 85, 0.4);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.breakdown-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.breakdown-count {
+  flex: 0 0 28px;
+  font-size: 0.68rem;
+  color: var(--church-text-muted);
+  text-align: right;
+}
+
+.breakdown-expand-icon {
+  font-size: 0.55rem;
+  margin-right: 4px;
+  opacity: 0.5;
+}
+
+.breakdown-verses {
+  margin: 4px 0 8px 16px;
+  padding-left: 8px;
+  border-left: 2px solid rgba(100, 116, 139, 0.2);
+  max-height: 400px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.breakdown-chapter-group {
+  margin-bottom: 6px;
+}
+
+.breakdown-chapter-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--church-text-muted);
+  margin-bottom: 4px;
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(100, 116, 139, 0.1);
+}
+
+/* ── Controls ── */
+
+.entity-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.entity-filter-row {
+  display: flex;
+  gap: 6px;
+}
+
+.entity-filter-chip {
+  flex: 1;
+  padding: 8px 10px;
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.15);
+  border-radius: 8px;
+  color: var(--church-text-muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.entity-filter-chip:hover {
+  background: rgba(6, 182, 212, 0.15);
+  border-color: rgba(6, 182, 212, 0.3);
+}
+
+.entity-filter-chip--active {
+  background: rgba(6, 182, 212, 0.2);
+  border-color: #06B6D4;
+  color: #06B6D4;
+  font-weight: 600;
+}
+
+.entity-filter-chip--person.entity-filter-chip--active {
+  background: rgba(252, 211, 77, 0.15);
+  border-color: #FCD34D;
+  color: #FCD34D;
+}
+
+.entity-filter-chip--place.entity-filter-chip--active {
+  background: rgba(6, 182, 212, 0.15);
+  border-color: #06B6D4;
+  color: #06B6D4;
+}
+
+.entity-filter-count {
+  font-size: 0.68rem;
+  opacity: 0.7;
+}
+
+.entity-search-input {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 10px;
+  color: var(--church-text);
+  font-size: 0.85rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.entity-search-input:focus {
+  border-color: #06B6D4;
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+.entity-search-input::placeholder {
+  color: var(--church-text-muted);
+}
+
+/* ── Entity List ── */
+
+.entity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.entity-list::-webkit-scrollbar {
+  width: 3px;
+}
+
+.entity-list::-webkit-scrollbar-thumb {
+  background: #06B6D4;
+  border-radius: 2px;
+}
+
+.entity-list-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: rgba(15, 23, 42, 0.3);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.entity-list-item:hover {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(6, 182, 212, 0.15);
+}
+
+.entity-list-item--active {
+  background: rgba(6, 182, 212, 0.08);
+  border-color: rgba(6, 182, 212, 0.3);
+}
+
+.entity-type-badge {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.entity-name {
+  flex: 1;
+  font-size: 0.85rem;
+  color: var(--church-text);
+  font-weight: 500;
+}
+
+.entity-stats {
+  font-size: 0.68rem;
+  color: var(--church-text-muted);
+  white-space: nowrap;
+}
+
+/* ═══════════════════════════════════════════
+   BIBLE APP — TAB-BAR LAYOUT (added)
+   These rules replace the stained-glass window
+   selector with a native-feeling bottom tab bar.
+   ═══════════════════════════════════════════ */
+
+.bible-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.bible-content {
+  flex: 1;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.bible-content .church-panel {
+  margin: 12px 0 0;
+}
+
+/* Bottom tab bar — fixed, blurred, safe-area aware */
+.bible-tabbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  padding: 6px 4px;
+  padding-bottom: calc(6px + env(safe-area-inset-bottom));
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-top: 1px solid rgba(252, 211, 77, 0.12);
+}
+
+.bible-tab {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 6px 2px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: var(--church-text-muted);
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 120ms ease, color 120ms ease, transform 120ms ease;
+}
+
+.bible-tab:active {
+  transform: scale(0.95);
+}
+
+.bible-tab--active {
+  color: var(--church-gold);
+  background: rgba(252, 211, 77, 0.08);
+}
+
+.bible-tab-label {
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* ═══════════════════════════════════════════
+   READ-TAB CHAPTER CONTROLS (chapter / select / stop)
+   ═══════════════════════════════════════════ */
+
+.read-chapter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 4px;
+}
+
+.read-hint {
+  font-size: 0.75rem;
+  color: var(--church-text-muted);
+  margin: 4px 0 10px;
+  font-style: italic;
+}
+
+.verse-action-btn--active {
+  background: rgba(252, 211, 77, 0.22);
+  color: var(--church-gold);
+  border-color: rgba(252, 211, 77, 0.55);
+}
+
+.read-verse-row--selected {
+  background: rgba(252, 211, 77, 0.12);
+  border-radius: 8px;
+  outline: 1px solid rgba(252, 211, 77, 0.35);
+}
+
+.read-verse-row--selected .read-verse-num {
+  color: var(--church-gold);
+  font-weight: 700;
+}
+
+.read-verse-row--playing {
+  background: rgba(139, 92, 246, 0.15);
+  border-radius: 8px;
+  outline: 1px solid rgba(167, 139, 250, 0.45);
+}
+
+.read-verse-row--playing .read-verse-num::after {
+  content: ' ♪';
+  color: var(--church-accent-light);
+}
+
+/* Disable iOS's native text-selection callout on tappable verses so a
+   double-tap reads instead of opening the share/define menu. */
+.read-verse-row, .verse-card {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ═══════════════════════════════════════════
+   HEADER LAYOUT WITH FONT-SIZE CONTROLS
+   ═══════════════════════════════════════════ */
+
+.bible-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  text-align: left;
+}
+
+.bible-header-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.bible-header .church-title,
+.bible-header .church-subtitle {
+  text-align: left;
+}
+
+.bible-header-controls {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.font-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(252, 211, 77, 0.10);
+  color: var(--church-gold);
+  border: 1px solid rgba(252, 211, 77, 0.30);
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  min-width: 38px;
+  cursor: pointer;
+  transition: background 120ms ease, transform 120ms ease;
+}
+
+.font-btn:active {
+  transform: scale(0.94);
+}
+
+.font-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ═══════════════════════════════════════════
+   COLLAPSIBLE DAILY VERSE
+   ═══════════════════════════════════════════ */
+
+.daily-verse-banner {
+  position: relative;
+}
+
+.daily-verse-collapse-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--church-gold);
+  font-size: 14px;
+  line-height: 1;
+  padding: 6px 8px;
+  cursor: pointer;
+  opacity: 0.6;
+  border-radius: 6px;
+}
+
+.daily-verse-collapse-btn:hover,
+.daily-verse-collapse-btn:active {
+  opacity: 1;
+  background: rgba(252, 211, 77, 0.10);
+}
+
+.daily-verse-banner--collapsed {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.12);
+  border-radius: var(--church-radius);
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  color: var(--church-gold);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+}
+
+.daily-verse-collapse-chevron {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+/* ═══════════════════════════════════════════
+   USER-ADJUSTABLE READING TEXT SIZE
+   ═══════════════════════════════════════════ */
+
+/* All readable verse text scales via --bible-font-scale set on .bible-page.
+   We use multiplicative calc() against the existing rem-based size so the
+   default (scale 1.0) reproduces today's exact look. */
+.bible-page {
+  --bible-font-scale: 1;
+}
+
+.bible-page .verse-text { font-size: calc(0.95rem * var(--bible-font-scale)); }
+.bible-page .read-verse-text { font-size: calc(0.95rem * var(--bible-font-scale)); line-height: 1.6; }
+.bible-page .read-verse-num { font-size: calc(0.75rem * var(--bible-font-scale)); }
+.bible-page .listen-verse-text { font-size: calc(1.05rem * var(--bible-font-scale)); }
+.bible-page .listen-verse-ref { font-size: calc(0.85rem * var(--bible-font-scale)); }
+.bible-page .daily-verse-text { font-size: calc(0.95rem * var(--bible-font-scale)); }
+.bible-page .daily-verse-ref { font-size: calc(0.80rem * var(--bible-font-scale)); }
+.bible-page .verse-ref { font-size: calc(0.80rem * var(--bible-font-scale)); }
+
+/* iOS Safari/WKWebView: disable its automatic text-size adjustment so our
+   slider is the single source of truth. */
+.bible-page {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   VERSE CARD v2 — high contrast, scrollable page (not nested), gold
+   accent stripe, clearer ref + buttons, visible playing/active states.
+   These rules win over the originals by virtue of appearing last.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* The search results should flow inside the panel, not own their own
+   scrolling region — the page already scrolls past the bottom tab bar. */
+.search-results {
+  max-height: none;
+  overflow-y: visible;
+  gap: 10px;
+  padding-bottom: 16px;
+}
+
+/* 6 tabs — labels can breathe a little more than the 7-tab squeeze. */
+.bible-tab-label {
+  font-size: 10.5px;
+  letter-spacing: 0.01em;
+}
+
+.search-result-count {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--church-gold);
+  margin: 4px 0 12px;
+  opacity: 0.85;
+}
+
+/* Card */
+.verse-card {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(51, 47, 110, 0.55) 0%,
+    rgba(30, 27, 75, 0.85) 100%
+  );
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  border-left: none;          /* replaced by the accent stripe below */
+  border-radius: 12px;
+  padding: 14px 16px 12px 18px;
+  cursor: pointer;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease,
+    background 140ms ease,
+    box-shadow 140ms ease;
+}
+
+/* Gold left-edge accent — gives the card a visible "hook" against the page. */
+.verse-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #FCD34D 0%, #B45309 100%);
+  opacity: 0.85;
+}
+
+.verse-card:hover,
+.verse-card:active {
+  border-color: rgba(252, 211, 77, 0.5);
+  background: linear-gradient(
+    180deg,
+    rgba(56, 51, 122, 0.7) 0%,
+    rgba(35, 32, 85, 0.95) 100%
+  );
+  transform: translateY(-1px);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(252, 211, 77, 0.08) inset;
+}
+
+.verse-card--active,
+.verse-card--playing {
+  border-color: rgba(252, 211, 77, 0.7);
+  background: linear-gradient(
+    180deg,
+    rgba(73, 60, 130, 0.85) 0%,
+    rgba(45, 38, 100, 0.95) 100%
+  );
+}
+
+/* Reference (pill style for prominence) */
+.verse-card .verse-ref {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--church-gold);
+  background: rgba(252, 211, 77, 0.10);
+  border: 1px solid rgba(252, 211, 77, 0.25);
+  padding: 3px 8px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+/* Verse body (subtly off-white for less retinal fatigue) */
+.verse-card .verse-text {
+  color: #E8EDF7;
+  line-height: 1.62;
+}
+
+/* Highlight of matched query text */
+.verse-card .verse-text mark {
+  background: linear-gradient(180deg, rgba(252, 211, 77, 0.35), rgba(180, 83, 9, 0.35));
+  color: #FFEFB7;
+  padding: 0 3px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* Action button row */
+.verse-card .verse-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.verse-card .verse-action-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 6px 12px;
+  background: rgba(167, 139, 250, 0.14);
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  border-radius: 8px;
+  color: #E0D7FF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition:
+    background 120ms ease,
+    border-color 120ms ease,
+    transform 120ms ease;
+}
+
+.verse-card .verse-action-btn:hover,
+.verse-card .verse-action-btn:active {
+  background: rgba(167, 139, 250, 0.28);
+  border-color: rgba(167, 139, 250, 0.7);
+  transform: scale(0.97);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   JOURNAL (Reflections) — pasted from the journal feature drop.
+   Uses --church-accent / --church-gold / --church-red / mic-pulse
+   already defined above. The list's nested scroll has been removed
+   to match the other panes (let the page scroll).
+   ═══════════════════════════════════════════════════════════════════ */
+   ═══════════════════════════════════════════ */
+
+.journal {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.journal-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.12);
+}
+
+.journal-count {
+  font-size: 0.75rem;
+  color: var(--church-text-muted);
+}
+
+.journal-new-btn,
+.journal-save-btn {
+  padding: 8px 14px;
+  background: var(--church-accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.journal-new-btn:hover,
+.journal-save-btn:hover {
+  background: var(--church-accent-light);
+}
+
+.journal-save-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.journal-back-btn,
+.journal-edit-btn,
+.journal-delete-btn {
+  padding: 6px 12px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 8px;
+  color: var(--church-accent-light);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.journal-back-btn:hover,
+.journal-edit-btn:hover {
+  background: rgba(139, 92, 246, 0.18);
+}
+
+.journal-delete-btn {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.25);
+  color: var(--church-red);
+}
+
+.journal-delete-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.journal-view-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* Empty state */
+.journal-empty {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--church-text-muted);
+}
+
+.journal-empty-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* List */
+.journal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 460px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.journal-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.journal-list::-webkit-scrollbar-thumb {
+  background: var(--church-accent);
+  border-radius: 2px;
+}
+
+.journal-card {
+  text-align: left;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(139, 92, 246, 0.12);
+  border-radius: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  color: var(--church-text);
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.journal-card:hover {
+  background: rgba(15, 23, 42, 0.7);
+  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateY(-1px);
+}
+
+.journal-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.journal-card-date {
+  font-size: 0.72rem;
+  color: var(--church-text-muted);
+  font-weight: 500;
+}
+
+.journal-card-verse {
+  font-size: 0.72rem;
+  color: var(--church-gold);
+  font-weight: 600;
+  background: rgba(251, 191, 36, 0.1);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.journal-card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--church-text);
+}
+
+.journal-card-snippet {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--church-text-muted);
+}
+
+/* Single-entry view */
+.journal-view {
+  padding: 4px 2px;
+}
+
+.journal-view-verse {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--church-gold);
+  background: rgba(251, 191, 36, 0.1);
+  padding: 4px 10px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.journal-view-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--church-text);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.journal-view-meta {
+  font-size: 0.72rem;
+  color: var(--church-text-muted);
+  margin-bottom: 16px;
+}
+
+.journal-view-content {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--church-text);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Compose */
+.journal-verse-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px 6px 12px;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  border-radius: 999px;
+  align-self: flex-start;
+}
+
+.journal-verse-chip-label {
+  font-size: 0.7rem;
+  color: var(--church-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.journal-verse-chip-ref {
+  font-size: 0.82rem;
+  color: var(--church-gold);
+  font-weight: 600;
+}
+
+.journal-verse-chip-remove {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(251, 191, 36, 0.15);
+  color: var(--church-gold);
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.journal-verse-chip-remove:hover {
+  background: rgba(251, 191, 36, 0.3);
+}
+
+.journal-verse-context {
+  margin: 0;
+  padding: 10px 14px;
+  background: rgba(139, 92, 246, 0.06);
+  border-left: 3px solid var(--church-accent);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--church-text-muted);
+}
+
+.journal-title-input {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 10px;
+  color: var(--church-text);
+  font-size: 1rem;
+  font-weight: 600;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.journal-title-input:focus {
+  border-color: var(--church-accent);
+}
+
+.journal-content-wrap {
+  position: relative;
+}
+
+.journal-content-input {
+  width: 100%;
+  padding: 14px 52px 14px 14px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  color: var(--church-text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  outline: none;
+  resize: vertical;
+  min-height: 160px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.journal-content-input:focus {
+  border-color: var(--church-accent);
+}
+
+.journal-content-input::placeholder {
+  color: var(--church-text-muted);
+}
+
+.journal-mic-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--church-green);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.journal-mic-btn:hover {
+  transform: scale(1.05);
+}
+
+.journal-mic-btn.listening {
+  background: var(--church-red);
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.4);
+  animation: mic-pulse 1.2s ease-in-out infinite;
+}
+
+.journal-error {
+  padding: 10px 14px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 10px;
+  color: var(--church-red);
+  font-size: 0.82rem;
+}
+
+/* Override the journal-list's nested scrollbar so it flows in the panel,
+   consistent with the search/topic/bookmark lists (page scroll, not local). */
+.journal-list {
+  max-height: none;
+  overflow-y: visible;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SEARCH STATS PANEL — dynamic linked statistics for any text query.
+   Collapsible header, OT/NT split bars, per-book breakdown. Each
+   element is click-to-filter; filteredResults below the panel updates
+   accordingly. Pasted from the stats feature drop.
+   ═══════════════════════════════════════════════════════════════════ */
+.search-stats {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(251, 191, 36, 0.18);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.search-stats-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(251, 191, 36, 0.06);
+  border: none;
+  border-bottom: 1px solid rgba(251, 191, 36, 0.12);
+  color: var(--church-gold);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.search-stats-header:hover {
+  background: rgba(251, 191, 36, 0.1);
+}
+
+.search-stats-title em {
+  color: var(--church-text);
+  font-style: normal;
+}
+
+.search-stats-toggle {
+  font-size: 0.7rem;
+  color: var(--church-text-muted);
+}
+
+.search-stats-body {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Summary pills */
+.search-stats-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.search-stats-pill {
+  flex: 1 1 auto;
+  min-width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  padding: 8px 12px;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: 10px;
+  color: var(--church-text);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+button.search-stats-pill:hover {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.search-stats-pill.active {
+  background: rgba(251, 191, 36, 0.1);
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+.search-stats-pill-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--church-text-muted);
+  font-weight: 600;
+}
+
+.search-stats-pill-val {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--church-text);
+}
+
+/* Testament bars */
+.search-stats-testaments {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.search-stats-bar-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 80px;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 4px;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--church-text);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.search-stats-bar-row:hover {
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.search-stats-bar-row.active {
+  background: rgba(251, 191, 36, 0.08);
+  border-color: rgba(251, 191, 36, 0.25);
+}
+
+.search-stats-bar-label {
+  font-size: 0.78rem;
+  color: var(--church-text-muted);
+  font-weight: 500;
+}
+
+.search-stats-bar-track {
+  height: 8px;
+  background: rgba(51, 65, 85, 0.5);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.search-stats-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.search-stats-bar-fill--ot {
+  background: linear-gradient(90deg, #F59E0B, #FCD34D);
+}
+
+.search-stats-bar-fill--nt {
+  background: linear-gradient(90deg, #3B82F6, #60A5FA);
+}
+
+.search-stats-bar-val {
+  font-size: 0.75rem;
+  color: var(--church-text);
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Per-book breakdown */
+.search-stats-books-title {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--church-text-muted);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.search-stats-books {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  max-height: 240px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.search-stats-books::-webkit-scrollbar {
+  width: 3px;
+}
+
+.search-stats-books::-webkit-scrollbar-thumb {
+  background: var(--church-gold-dim);
+  border-radius: 2px;
+}
+
+.search-stats-book-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 40px;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 6px;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--church-text);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.search-stats-book-row:hover {
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.search-stats-book-row.active {
+  background: rgba(251, 191, 36, 0.08);
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+.search-stats-book-name {
+  font-size: 0.78rem;
+  color: var(--church-text);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search-stats-book-count {
+  font-size: 0.72rem;
+  color: var(--church-text-muted);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Filter clear chip */
+.search-result-count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.search-clear-filter {
+  padding: 4px 10px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 6px;
+  color: var(--church-red);
+  font-size: 0.72rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.search-clear-filter:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+/* ═══════════════════════════════════════════
+   CHAPTER DRILLDOWN CHIPS (Search stats)
+   Shown when a book is selected — one chip per chapter that has matches.
+   ═══════════════════════════════════════════ */
+
+.search-stats-chapters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.search-stats-chapter-chip {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 999px;
+  color: var(--church-text);
+  font-size: 0.78rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease, transform 0.1s ease;
+}
+
+.search-stats-chapter-chip:hover,
+.search-stats-chapter-chip:active {
+  background: rgba(139, 92, 246, 0.18);
+  border-color: rgba(139, 92, 246, 0.5);
+}
+
+.search-stats-chapter-chip.active {
+  background: rgba(252, 211, 77, 0.15);
+  border-color: rgba(252, 211, 77, 0.55);
+  color: var(--church-gold);
+  font-weight: 600;
+}
+
+.search-stats-chapter-num {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.search-stats-chapter-count {
+  font-size: 0.7rem;
+  color: var(--church-text-muted);
+  background: rgba(0, 0, 0, 0.25);
+  padding: 1px 6px;
+  border-radius: 999px;
+}
+
+.search-stats-chapter-chip.active .search-stats-chapter-count {
+  color: var(--church-gold);
+  background: rgba(252, 211, 77, 0.18);
+}
+
+/* ═══════════════════════════════════════════
+   JOURNAL — MULTI-VERSE CHIPS + ADD VERSE
+   ═══════════════════════════════════════════ */
+
+.journal-verse-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.journal-verse-add {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.journal-verse-add-input {
+  flex: 1;
+  min-width: 140px;
+  padding: 6px 10px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px dashed rgba(251, 191, 36, 0.35);
+  border-radius: 999px;
+  color: var(--church-text);
+  font-size: 0.82rem;
+  outline: none;
+  font-family: inherit;
+}
+
+.journal-verse-add-input:focus {
+  border-style: solid;
+  border-color: var(--church-gold);
+}
+
+.journal-verse-add-input::placeholder {
+  color: var(--church-text-muted);
+}
+
+.journal-verse-add-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 6px 12px;
+  background: var(--church-gold);
+  color: #1E1B4B;
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.78rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* List card: multiple ref pills */
+.journal-card-verses {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+
+.journal-card-verse--more {
+  color: var(--church-text-muted);
+  background: rgba(148, 163, 184, 0.1);
+}
+
+/* Single-entry view: row of ref pills */
+.journal-view-verses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+/* ═══════════════════════════════════════════
+   SEARCH — submit button replaces the static icon
+   ═══════════════════════════════════════════ */
+
+.search-submit-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-submit-btn:focus {
+  outline: none;
+}
+
+.search-submit-btn:active svg circle,
+.search-submit-btn:active svg line {
+  stroke: var(--church-gold);
+}
+
+/* ═══════════════════════════════════════════
+   JOURNAL — VERSE-PROMPT CHOOSER + ATTACHED VERSE CARDS
+   ═══════════════════════════════════════════ */
+
+.journal-prompt-primary {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.journal-prompt-or {
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--church-text-muted);
+  margin: 4px 0 -2px;
+}
+
+/* Attached verse cards inside the view of a journal entry */
+.journal-attached-verses {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 12px;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(252, 211, 77, 0.18);
+  border-radius: 12px;
+}
+
+.journal-attached-verse {
+  border-left: 3px solid var(--church-gold);
+  padding: 6px 10px;
+  background: rgba(252, 211, 77, 0.05);
+  border-radius: 0 8px 8px 0;
+}
+
+.journal-attached-verse-ref {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--church-gold);
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.journal-attached-verse-text {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--church-text);
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TESTAMENT THEME ON VERSE CARDS
+   OT keeps the existing warm-gold palette (default). NT swaps to the
+   cool blue used by the search-stats NT bar (#3B82F6 → #60A5FA) so
+   verses from Matthew through Revelation are visually distinct.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* NT — left accent stripe */
+.verse-card[data-testament="new"]::before {
+  background: linear-gradient(180deg, #60A5FA 0%, #1D4ED8 100%);
+  opacity: 0.95;
+}
+
+/* NT — reference pill */
+.verse-card[data-testament="new"] .verse-ref {
+  color: #BFDBFE;
+  background: rgba(59, 130, 246, 0.14);
+  border-color: rgba(96, 165, 250, 0.35);
+}
+
+/* NT — hover/active border tint shifts blue too */
+.verse-card[data-testament="new"]:hover,
+.verse-card[data-testament="new"]:active {
+  border-color: rgba(96, 165, 250, 0.5);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(96, 165, 250, 0.08) inset;
+}
+
+.verse-card[data-testament="new"].verse-card--active,
+.verse-card[data-testament="new"].verse-card--playing {
+  border-color: rgba(96, 165, 250, 0.7);
+}
+
+/* NT — match highlight stays gold (search hits are query-centric, not
+   testament-centric — keeping them yellow keeps "love" readable on both). */
+
+/* ═══════════════════════════════════════════════════════════════════
+   PINNED SEARCHES TAB
+   Replaces the old Topics grid. Each saved-search is a card with the
+   query, optional filter chips, tap-to-restore, and an × remove button.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.pinned-empty {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--church-text-muted);
+}
+
+.pinned-empty-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.pinned-empty-text strong {
+  color: var(--church-gold);
+  font-weight: 700;
+}
+
+.pinned-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pinned-card {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(252, 211, 77, 0.18);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: background 140ms ease, border-color 140ms ease;
+}
+
+.pinned-card:hover {
+  background: rgba(15, 23, 42, 0.75);
+  border-color: rgba(252, 211, 77, 0.4);
+}
+
+.pinned-card-body {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: 1;
+  background: transparent;
+  border: 0;
+  padding: 12px 14px;
+  text-align: left;
+  color: var(--church-text);
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pinned-card-query {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--church-text);
+  letter-spacing: 0.01em;
+}
+
+.pinned-card-subquery {
+  font-size: 0.78rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--church-text-muted);
+  letter-spacing: 0;
+}
+
+.pinned-card-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.pinned-card-filter-chip {
+  display: inline-block;
+  padding: 2px 8px;
+  background: rgba(252, 211, 77, 0.1);
+  border: 1px solid rgba(252, 211, 77, 0.3);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  color: var(--church-gold);
+  letter-spacing: 0.03em;
+}
+
+.pinned-card-remove {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 38px;
+  background: transparent;
+  border: 0;
+  border-left: 1px solid rgba(252, 211, 77, 0.12);
+  color: var(--church-text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+.pinned-card-remove:hover,
+.pinned-card-remove:active {
+  background: rgba(239, 68, 68, 0.12);
+  color: var(--church-red);
+}
+
+/* ═══════════════════════════════════════════
+   SEARCH — PIN BUTTON IN THE RESULT-COUNT ROW
+   ═══════════════════════════════════════════ */
+
+.search-result-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.search-pin-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 4px 10px;
+  background: rgba(252, 211, 77, 0.1);
+  border: 1px solid rgba(252, 211, 77, 0.3);
+  border-radius: 6px;
+  color: var(--church-gold);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 120ms ease;
+}
+
+.search-pin-btn:hover {
+  background: rgba(252, 211, 77, 0.18);
+}
+
+.search-pin-btn--pinned {
+  background: rgba(252, 211, 77, 0.22);
+  color: #FFEFB7;
+  cursor: default;
+}
+
+.search-pin-btn:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PEOPLE TAB — SUMMARY ROW (when entity is selected)
+   The "tells me something" surface — total mentions, distinct books,
+   first/last/peak. Sits above the Arc / Heat Map viz so you don't
+   have to interpret the chart to know the basics.
+   ═══════════════════════════════════════════════════════════════════ */
+
+.entity-summary {
+  background: linear-gradient(
+    180deg,
+    rgba(51, 47, 110, 0.55) 0%,
+    rgba(30, 27, 75, 0.85) 100%
+  );
+  border: 1px solid rgba(252, 211, 77, 0.3);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+
+.entity-summary[data-type="place"] {
+  border-color: rgba(6, 182, 212, 0.45);
+}
+
+.entity-summary-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--church-gold);
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+}
+
+.entity-summary[data-type="place"] .entity-summary-name {
+  color: #06B6D4;
+}
+
+.entity-summary-type-badge {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: var(--church-gold);
+  background: rgba(252, 211, 77, 0.16);
+  border: 1px solid rgba(252, 211, 77, 0.4);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.entity-summary-type-badge[data-type="place"] {
+  color: #06B6D4;
+  background: rgba(6, 182, 212, 0.16);
+  border-color: rgba(6, 182, 212, 0.4);
+}
+
+.entity-summary-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+
+.entity-summary-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 56px;
+}
+
+.entity-summary-stat--wide {
+  min-width: 110px;
+}
+
+.entity-summary-stat-label {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--church-text-muted);
+  font-weight: 600;
+}
+
+.entity-summary-stat-val {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--church-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.entity-summary-stat-val--ref {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--church-gold);
+  font-variant-numeric: normal;
+}
+
+.entity-summary[data-type="place"] .entity-summary-stat-val--ref {
+  color: #06B6D4;
+}
