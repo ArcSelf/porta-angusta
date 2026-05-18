@@ -35,8 +35,13 @@ jobs:
           cache-dependency-path: web/package-lock.json
 
       - name: Install dependencies
+        # We use `npm install` instead of `npm ci` because Rollup ships
+        # platform-specific native binaries as optional dependencies, and
+        # npm's lockfile handling for those is buggy across platforms
+        # (https://github.com/npm/cli/issues/4828). `npm install` resolves
+        # the right binary for the current runner at install time.
         working-directory: web
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
       - name: Type-check
         working-directory: web
