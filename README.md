@@ -30,6 +30,35 @@ A King James Bible reader for people who want to read the Word carefully —
 and want their tools to keep up. No accounts, no telemetry, no network
 calls of any kind.
 
+<p align="center">
+  <img src="docs/screenshots/01-search-stats.png" width="32%" alt="Search with live OT/NT statistics" />
+  <img src="docs/screenshots/02-people-heatmap.png" width="32%" alt="Persons & Places heat map" />
+  <img src="docs/screenshots/03-journal-verse.png" width="32%" alt="Journal entry with attached verse" />
+</p>
+
+<p align="center">
+  <sub><em>Search statistics with OT/NT split · Named-entity heat map · Journal with verse text rendered</em></sub>
+</p>
+
+<details>
+<summary><strong>More screenshots</strong></summary>
+
+<p align="center">
+  <img src="docs/screenshots/04-read-book-picker.png" width="32%" alt="Read tab with book picker" />
+  <img src="docs/screenshots/05-people-arc-trace.png" width="32%" alt="Arc trace for Israel across the canon" />
+  <img src="docs/screenshots/06-saved-verses.png" width="32%" alt="Saved verses tab" />
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/07-journal-lords-prayer.png" width="32%" alt="Journal entry — the Lord's Prayer with John 3:16 and Psalms 4:5 attached" />
+</p>
+
+<p align="center">
+  <sub><em>Read with book picker · Arc-trace canonical journey · Saved verses · Journal with multi-verse linking</em></sub>
+</p>
+
+</details>
+
 ---
 
 ## What's inside
