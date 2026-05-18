@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="https://apps.apple.com/app/id6770117302"><img alt="App Store" src="https://img.shields.io/badge/App_Store-Porta_Angusta-0A84FF?logo=apple&logoColor=white" /></a>
-  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/github/license/ArcSelf/porta-angusta?color=FCD34D" /></a>
+  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/github/license/ArcSelf/porta-angusta?color=FCD34D&cacheSeconds=600" /></a>
   <a href="https://github.com/ArcSelf/porta-angusta/actions/workflows/web-ci.yml"><img alt="Web CI" src="https://github.com/ArcSelf/porta-angusta/actions/workflows/web-ci.yml/badge.svg" /></a>
   <a href="https://github.com/ArcSelf/porta-angusta/commits/main"><img alt="Last commit" src="https://img.shields.io/github/last-commit/ArcSelf/porta-angusta?color=8B5CF6" /></a>
   <a href="https://github.com/ArcSelf/porta-angusta/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ArcSelf/porta-angusta?style=social" /></a>

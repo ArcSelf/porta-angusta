@@ -6,10 +6,30 @@ versions follow [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added (toward v1.1)
+- **iCloud sync for journal entries.** New `CloudStore.swift` wraps
+  `NSUbiquitousKeyValueStore` and exposes it to the React layer via a
+  `WKScriptMessageHandler` bridge (`window.webkit.messageHandlers.cloudStore`).
+  The `useJournal` hook now mirrors entries to iCloud whenever they
+  change, and reconciles with iCloud on mount. Result: journal entries
+  survive a fresh app install on the same iCloud account and sync
+  across iPhone + iPad seamlessly. Falls back to localStorage-only
+  when iCloud is signed out or the user is on the web dev build.
+- `KJVBible.entitlements` declaring the iCloud key-value store
+  capability. Activation in Xcode is a one-time + Capability click —
+  see `docs/iCLOUD_SETUP.md`.
+
+### Changed
+- Journal `localStorage` key migrated from `church_journal` to
+  `kjv_journal` for consistency with the rest of the app's namespace.
+  Existing v1.0.0 user data is migrated automatically on first load
+  and the legacy key is removed. Idempotent — safe across reloads.
+
 ### Planned
-- iCloud sync for bookmarks, pinned searches, and journal entries (opt-in).
+- Mirror `kjv_bookmarks` and `kjv_pinned_searches` to iCloud (v1.1.1).
 - iPad layout polish.
 - visionOS native review pass.
+- Optional manual JSON Export/Import for cross-platform backup.
 
 ---
 

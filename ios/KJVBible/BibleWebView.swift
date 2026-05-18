@@ -15,6 +15,15 @@ import SwiftUI
 import WebKit
 
 struct BibleWebView: UIViewRepresentable {
+
+    /// We hold onto the CloudStore so its lifetime matches the WKWebView's.
+    /// SwiftUI tears these down together when the view goes away.
+    final class Coordinator {
+        var cloudStore: CloudStore?
+    }
+
+    func makeCoordinator() -> Coordinator { Coordinator() }
+
     func makeUIView(context: Context) -> WKWebView {
         let config = WKWebViewConfiguration()
 
@@ -26,7 +35,8 @@ struct BibleWebView: UIViewRepresentable {
         config.allowsInlineMediaPlayback = true
         config.mediaTypesRequiringUserActionForPlayback = []
 
-        // Persist `localStorage` (saved verses) across launches.
+        // Persist `localStorage` (saved verses, journal, pinned searches,
+        // font scale, daily-verse collapsed state) across launches.
         config.websiteDataStore = .default()
 
         let prefs = WKWebpagePreferences()
@@ -41,6 +51,13 @@ struct BibleWebView: UIViewRepresentable {
         webView.isOpaque = false
         webView.backgroundColor = .black
         webView.scrollView.backgroundColor = .black
+
+        // Wire the iCloud key-value bridge for the React side.
+        // window.webkit.messageHandlers.cloudStore.postMessage(...)
+        // becomes a real call into NSUbiquitousKeyValueStore via Swift.
+        let cloudStore = CloudStore(webView: webView)
+        config.userContentController.add(cloudStore, name: CloudStore.messageName)
+        context.coordinator.cloudStore = cloudStore
 
         // Boot the bundled SPA.
         if let url = URL(string: "bibleapp://app/index.html") {
