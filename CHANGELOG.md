@@ -25,11 +25,35 @@ versions follow [Semantic Versioning](https://semver.org/).
   Existing v1.0.0 user data is migrated automatically on first load
   and the legacy key is removed. Idempotent — safe across reloads.
 
+### Added (continued)
+- **Export / Import full backup** as a JSON file from the Journal toolbar.
+  Backs up *everything* the user owns inside the app, not just journal
+  entries:
+  - **Journal entries** — including a `verseTexts` map per entry that
+    inlines the full text of every linked verse, so the file is
+    self-contained even if read on a platform without the bundled KJV.
+  - **Saved verses (bookmarks)** with full text and reference.
+  - **Pinned searches** with their captured filter state (testament,
+    book, chapter).
+  - **Reading preferences** (font scale, daily-verse collapsed state).
+
+  **Export** hands a `porta-angusta-backup-YYYY-MM-DD.json` file to
+  the iOS share sheet (Files, AirDrop, Mail, iCloud Drive, etc.).
+
+  **Import** opens the system file picker, validates, merges into the
+  current state, and reloads. Conflict-free: journal entries dedupe
+  by id (newer updatedAt wins); bookmarks dedupe by reference;
+  pinned searches dedupe by query + filter combination.
+
+  Works regardless of iCloud state. The schema is versioned (v2),
+  backward-compatible with v1 journal-only exports, and cross-platform
+  safe — readable by the future Android port.
+
 ### Planned
 - Mirror `kjv_bookmarks` and `kjv_pinned_searches` to iCloud (v1.1.1).
+- Visible iCloud sync status indicator on the Journal screen.
 - iPad layout polish.
 - visionOS native review pass.
-- Optional manual JSON Export/Import for cross-platform backup.
 
 ---
 

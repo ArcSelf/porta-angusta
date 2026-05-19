@@ -12,6 +12,7 @@ import type { JournalEntry, UseJournalReturn } from '@hooks/useJournal'
 import type { BibleVerse } from '@hooks/useBibleData'
 import { useSpeechRecognition } from '@hooks/useSpeechRecognition'
 import { shareJournalEntry } from '@/utils/share'
+import { exportBackup, importBackup, applyBackup } from '@/utils/journalIO'
 
 interface JournalProps {
   /** When set, the panel opens directly in compose mode with this verse linked. */
@@ -59,6 +60,52 @@ export default function Journal({
   const { entries, addEntry, updateEntry, deleteEntry } = useJournal()
   const [mode, setMode] = useState<Mode>({ kind: 'list' })
 
+  // Transient toast for Export / Import outcomes
+  const [toast, setToast] = useState<string | null>(null)
+  useEffect(() => {
+    if (!toast) return
+    const t = setTimeout(() => setToast(null), 3500)
+    return () => clearTimeout(t)
+  }, [toast])
+
+  const handleExport = useCallback(async () => {
+    // The Export covers the user's full state — journal, bookmarks, pinned
+    // searches, and reading preferences — not just journal entries. The
+    // verse texts for any linked references get inlined so the backup
+    // file is fully self-contained.
+    const result = await exportBackup(getVerseByRef)
+    if (result === 'shared') setToast('Exported your full backup.')
+    else if (result === 'downloaded') setToast('Backup file downloaded.')
+    else if (result === 'cancelled') {} // user dismissed share sheet — no message
+    else setToast('Export failed. Try again in a moment.')
+  }, [getVerseByRef])
+
+  const handleImport = useCallback(async () => {
+    const result = await importBackup()
+    if (!result.ok) {
+      // Cancellation is silent; real errors get a toast.
+      if (result.reason !== 'Import cancelled.' && result.reason !== 'No file selected.') {
+        setToast(`Import failed: ${result.reason}`)
+      }
+      return
+    }
+    // Apply writes to localStorage and reloads the page so every hook
+    // re-initialises against the merged state in one consistent step.
+    const counts = applyBackup(result.payload)
+    const parts: string[] = []
+    if (counts.journal.added) parts.push(`${counts.journal.added} entries`)
+    if (counts.bookmarks.added) parts.push(`${counts.bookmarks.added} bookmarks`)
+    if (counts.pinnedSearches.added) parts.push(`${counts.pinnedSearches.added} pins`)
+    if (counts.journal.updated) parts.push(`${counts.journal.updated} updated`)
+    setToast(
+      parts.length > 0
+        ? `Restored ${parts.join(', ')} — reloading…`
+        : 'Nothing new to restore.'
+    )
+    // The applyBackup() call will reload the page ~600ms after we return,
+    // which gives this toast just enough time to be seen.
+  }, [])
+
   // When a verse is passed in via "Reflect", route through a chooser so the
   // user can decide whether to start a new reflection or add this verse to
   // an existing one. If there are no entries yet, skip the chooser.
@@ -94,7 +141,26 @@ export default function Journal({
           <span className="journal-count">
             {entries.length} {entries.length === 1 ? 'entry' : 'entries'}
           </span>
+          <span className="journal-toolbar-spacer" aria-hidden="true" />
+          <button
+            className="journal-io-btn"
+            onClick={handleExport}
+            title="Save all reflections to a file"
+            aria-label="Export journal"
+          >
+            ⬆ Export
+          </button>
+          <button
+            className="journal-io-btn"
+            onClick={handleImport}
+            title="Restore reflections from a file"
+            aria-label="Import journal"
+          >
+            ⬇ Import
+          </button>
         </div>
+
+        {toast && <div className="journal-toast" role="status">{toast}</div>}
 
         {entries.length === 0 ? (
           <div className="journal-empty">
