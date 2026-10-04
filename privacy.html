@@ -94,10 +94,11 @@
       offline.
     </p>
     <p>
-      Information leaves your device in only four situations, each of which you
+      Information leaves your device in only five situations, each of which you
       control: iCloud and iCloud Drive sync to your own Apple account, the optional AI
-      study assistant, voice dictation, and backup files you choose to share.
-      Each is described below.
+      study assistant, voice dictation, backup files you choose to share, and
+      two optional daily-reading settings that fetch a public page. Each is
+      described below.
     </p>
 
     <h2>What stays on your device</h2>
@@ -180,6 +181,65 @@
       any time, and removing your key turns the assistant off entirely.
     </p>
 
+    <h2>The daily Gospel</h2>
+    <p>
+      The Gospel of the day is worked out on your device and needs no network.
+      The liturgical calendar is arithmetic, the table of readings is compiled
+      into the app, and the passage itself is rendered from the Bible already
+      on your device. Lock-screen reminders are scheduled by iOS on your
+      device, and the words they carry are written on your device before they
+      are scheduled. Nothing about what you read, or when you read it, is sent
+      anywhere.
+    </p>
+    <p>
+      Two optional settings do reach the network. Both are off unless you turn
+      them on, and both are plain requests for a public page — no account, no
+      cookies, no identifier, and nothing about you in the request:
+    </p>
+    <ul>
+      <li><strong>&ldquo;Lectionary, fetched daily&rdquo;</strong> asks
+        <code>cpbjr.github.io</code> for that day&rsquo;s list of reading
+        references. Only the references are fetched; the Scripture itself is
+        still rendered from the Bible in the app.</li>
+      <li><strong>&ldquo;Show the Holy See bulletin&rdquo;</strong> asks
+        <code>press.vatican.va</code> for the Holy See Press Office&rsquo;s
+        public daily bulletin feed, and shows its headlines beside the Gospel.</li>
+    </ul>
+    <p>
+      The app will not contact any other address for these features; the two
+      above are the whole list. As with visiting any website, those sites can
+      see that a request was made, and their own privacy policies govern what
+      they log. The developer receives nothing and runs no server in between.
+    </p>
+    <p>
+      If you also turn on <strong>&ldquo;Let the assistant keep you to
+      pace&rdquo;</strong>, then once a day the app sends your AI provider a
+      summary of your own reflecting &mdash; how many reflections you have
+      written recently, on which days, and their titles &mdash; and asks for a
+      single sentence of encouragement. <strong>The text of your reflections is
+      never sent for this.</strong> It uses the same key and the same
+      permission as the study assistant above, and is off unless you turn it
+      on.
+    </p>
+
+    <h2>Working with Track Time</h2>
+    <p>
+      Porta Angusta can answer a question handed to it by Track Time, a
+      separate app by the same developer, and hand the answer back. This is a
+      hand-off between two apps on the same device and does not travel over
+      the network or through any server.
+    </p>
+    <p>
+      When Track Time sends a question it may include the circumstances of
+      your fast &mdash; hours held, the day you are on, what you have taken,
+      and lines from your fasting journal &mdash; so the answer can speak to
+      them. That question is then sent to your AI provider exactly as a study
+      question is, under the same permission prompt and with your own key. The
+      exchange is kept in your AI history, and the answer is returned to Track
+      Time so it is stored with your fast. If you decline the permission
+      prompt, nothing is sent.
+    </p>
+
     <h2>Microphone &amp; speech recognition</h2>
     <p>
       The microphone and speech-recognition permissions are requested only
@@ -248,8 +308,8 @@
     </p>
 
     <div class="meta">
-      Last updated: 14 September 2026<br>
-      Effective: 14 September 2026<br>
+      Last updated: 4 October 2026<br>
+      Effective: 4 October 2026<br>
       © 2026 Nicholas Tominello
     </div>
   </main>
